@@ -111,7 +111,8 @@ class Recorder(object):
 
         if self._recording_thread is not None:
             status['active'] = self._recording_thread.isAlive()
-            if self._recording_thread.status.current_status() == RecordingStatus.STATUS_ERROR:
+            if self._recording_thread.status.current_status() \
+                    == RecordingStatus.STATUS_ERROR:
                 status['error'] = self._recording_thread.status.error
 
         return status
@@ -177,7 +178,8 @@ class Recorder(object):
         try:
             client.open()
             try:
-                while status.current_status() == RecordingStatus.STATUS_RUNNING:
+                while status.current_status() \
+                        == RecordingStatus.STATUS_RUNNING:
                     client.idle()
 
             finally:

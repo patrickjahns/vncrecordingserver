@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from flask import Flask
-from .recorder import RecorderActiveError, Recorder
+from .recorder import Recorder
 from .server import routes
 
 __version__ = '1.0.0'

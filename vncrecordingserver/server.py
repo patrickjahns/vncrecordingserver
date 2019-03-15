@@ -41,5 +41,3 @@ def stop_recording():
 @routes.route("/recording", methods=['GET'])
 def show_status():
     return json.jsonify(current_app.recorder.get_status())
-
-
