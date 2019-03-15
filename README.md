@@ -4,6 +4,8 @@
 
 Provides a simple HTTP Api to remote control recording a vnc stream. 
 
+[![Build Status](https://cloud.drone.io/api/badges/patrickjahns/vncrecordingserver/status.svg)](https://cloud.drone.io/patrickjahns/vncrecordingserver)
+
 
 ## Installation
 
