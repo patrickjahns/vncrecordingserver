@@ -1,3 +1,2 @@
 Flask==0.12.2
-git+git://github.com/patrickjahns/vnc2.git@0.1.0
-
+git+git://github.com/patrickjahns/vnc2flv.git@0.1.0
