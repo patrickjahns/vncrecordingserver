@@ -9,13 +9,13 @@ steps:
     - pip install -r requirements-dev.txt
     - flake8 --exclude=venv,setup.py
 
-#---
-#kind: pipeline
-#name: python3
-#
-#steps:
-#- name: python-codecheck
-#  image: python:3.7-alpine
-#  commands:
-#    - pip install -r requirements-dev.txt
-#    - flake8 --exclude=venv,setup.py
+---
+kind: pipeline
+name: python3
+
+steps:
+- name: python-codecheck
+  image: python:3.7-alpine
+  commands:
+    - pip install -r requirements-dev.txt
+    - flake8 --exclude=venv,setup.py

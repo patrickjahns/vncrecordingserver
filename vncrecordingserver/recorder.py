@@ -142,12 +142,12 @@ class Recorder(object):
 
         try:
             os.makedirs(output_path)
-        except OSError as exc:  # Python >2.5
+        except OSError as exc:
             if exc.errno == errno.EEXIST and os.path.isdir(output_path):
                 pass
             else:
                 raise
-        fp = file(os.path.join(output_path, filename), 'wb')
+        fp = open(os.path.join(output_path, filename), 'wb')
 
         writer = FLVWriter(
             fp,
@@ -186,14 +186,13 @@ class Recorder(object):
 
             finally:
                 client.close()
-        except socket.error, e:
+        except socket.error as e:
             logger.error('Socket error:' + str(e))
             status.raise_error('Socket error ' + str(e))
-
-        except RFBError, e:
+        except RFBError as e:
             logger.error('RFB error:' + str(e))
             status.raise_error('RFB error: ' + str(e))
-        except Exception, e:
+        except Exception as e:
             logger.error('Unknown error:'+str(e))
             status.raise_error('Unknown error ' + str(e))
         writer.close()
