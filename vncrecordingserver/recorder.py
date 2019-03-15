@@ -1,13 +1,15 @@
 #!/usr/bin/env python
-import sys
 import time
 import socket
 import threading
 import os
 import errno
+import logging
 from vnc2flv.flv import FLVWriter
 from vnc2flv.rfb import RFBNetworkClient, RFBError
 from vnc2flv.video import FLVVideoSink
+
+logger = logging.getLogger(__name__)
 
 
 class RecorderActiveError(Exception):
@@ -185,17 +187,14 @@ class Recorder(object):
             finally:
                 client.close()
         except socket.error, e:
-            # TODO: use logger
-            print >> sys.stderr, 'Socket error:', e
+            logger.error('Socket error:' + str(e))
             status.raise_error('Socket error ' + str(e))
 
         except RFBError, e:
-            # TODO: use logger
-            print >> sys.stderr, 'RFB error:', e
+            logger.error('RFB error:' + str(e))
             status.raise_error('RFB error: ' + str(e))
         except Exception, e:
-            # TODO: use logger
-            print >> sys.stderr, 'Unknown error:', e
+            logger.error('Unknown error:'+str(e))
             status.raise_error('Unknown error ' + str(e))
         writer.close()
         fp.close()
