@@ -22,7 +22,7 @@ setup(
         ],
     },
     install_requires=[
-        'Flask==1.0',
+        'Flask==2.3.2',
         'vnc2flv==0.1.0'
     ],
     dependency_links=[
